@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terrabot: Proyecto Universidad</title>
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+ <!-- Bootstrap Icons -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+ <!-- Font Awesome -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+ <style>
+    body {
+        background-color: #f8f9fa;
+        scroll-behavior: smooth;
+      }
+      
+      .hero-section {
+        background: linear-gradient(135deg, #52b788 0%, #2d6a4f 100%);
+        padding: 5rem 0;
+        color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      .content-section {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .btn-floating {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+      }
+      
+      .section-content {
+        display: none;
+      }
+      
+      .section-content.active {
+        display: block;
+        animation: fadeIn 0.5s;
+      }
+      
+      .menu-section {
+        background: linear-gradient(to right, #e9ecef, #dee2e6);
+        padding: 3rem 0;
+      }
+      
+      .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 100%;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .technology-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #2d6a4f;
+      }
+      
+      .card-img-top {
+        height: 180px;
+        object-fit: cover;
+      }
+      
+      .return-btn {
+        display: inline-block;
+        margin-top: 1rem;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      .stats-box {
+        background-color: #e9ecef;
+        border-left: 5px solid #2d6a4f;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 5px;
+      }
+      
+      .feature-item {
+        display: flex;
+        margin-bottom: 1.5rem;
+        align-items: center;
+      }
+      
+      .feature-icon {
+        background-color: #d8f3dc;
+        color: #2d6a4f;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+      
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: #2d6a4f;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+      
+      .timeline-container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+      
+      .timeline-container.left {
+        left: 0;
+      }
+      
+      .timeline-container.right {
+        left: 50%;
+      }
+      
+      .timeline-content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .progress-bar {
+        background-color: #2d6a4f;
+      }
+ </style>
+</head>
+<body>
+    <!-- Header Hero -->
+    <header class="hero-section text-center">
+      <div class="container">
+        <h1 class="display-3 fw-bold mb-3">TERRABOT</h1>
+        <p class="lead fs-3">Pregunta problema para Terrabot</p>
+        <p class="mb-4">¿Cómo desarrollar un robot autónomo de bajo costo que apoye eficientemente las labores agrícolas en terrenos de difícil acceso, mejorando la productividad y reduciendo el esfuerzo físico de pequeños agricultores?</p>
+        <a href="#menu" class="btn btn-light btn-lg">Conoce más <i class="fas fa-arrow-down ms-2"></i></a>
+      </div>
+    </header>
+  
+    <!-- Video de presentación -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <h2 class="text-center mb-4"><i class="fas fa-film text-success me-2"></i>Video de Presentación</h2>
+            <div class="ratio ratio-16x9 shadow">
+              <iframe src="https://www.youtube.com/embed/DtEmYCIBABs" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menú Principal -->
+    <section id="menu" class="menu-section">
+      <div class="container">
+        <h2 class="text-center mb-5">Explora Nuestro Proyecto</h2>
+        <div class="row g-4">
+          <!-- Tarjeta 1 -->
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="img/imagen tractor.jpg" class="card-img-top" alt="Introducción a Terrabot">
+              <div class="card-body text-center">
+                <div class="technology-icon">
+                  <i class="fas fa-seedling"></i>
+                </div>
+                <h4 class="card-title">Sobre Terrabot</h4>
+                <p class="card-text">Descubre qué es Terrabot, sus objetivos y su importancia para la agricultura moderna.</p>
+                <button class="btn btn-success show-section" data-section="introduccion">Explorar</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 2 -->
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="img/innovacion-tecnologica.jpeg" class="card-img-top" alt="Tecnologías de Terrabot">
+              <div class="card-body text-center">
+                <div class="technology-icon">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <h4 class="card-title">Tecnología</h4>
+                <p class="card-text">Explora las tecnologías innovadoras que hacen posible el funcionamiento de Terrabot.</p>
+                <button class="btn btn-success show-section" data-section="tecnologia">Explorar</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 3 -->
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="img/impacto-ambiental.jpg" class="card-img-top" alt="Impacto de Terrabot">
+              <div class="card-body text-center">
+                <div class="technology-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <h4 class="card-title">Impacto y Beneficios</h4>
+                <p class="card-text">Conoce cómo Terrabot puede transformar la agricultura y sus múltiples beneficios.</p>
+                <button class="btn btn-success show-section" data-section="impacto">Explorar</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 4 -->
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="img/Avances-en-el-diseño.png" class="card-img-top" alt="Diseño de Terrabot">
+              <div class="card-body text-center">
+                <div class="technology-icon">
+                  <i class="fas fa-drafting-compass"></i>
+                </div>
+                <h4 class="card-title">Diseño y Características</h4>
+                <p class="card-text">Examina el diseño, componentes y características que hacen único a Terrabot.</p>
+                <button class="btn btn-success show-section" data-section="diseno">Explorar</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 5 -->
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="img/principales-desafios.jpg" class="card-img-top" alt="Desafíos de Terrabot">
+              <div class="card-body text-center">
+                <div class="technology-icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h4 class="card-title">Desafíos y Soluciones</h4>
+                <p class="card-text">Conoce los retos que enfrentamos y cómo los estamos superando con innovación.</p>
+                <button class="btn btn-success show-section" data-section="desafios">Explorar</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 6 -->
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img src="img/futuro.avif" class="card-img-top" alt="Futuro de Terrabot">
+              <div class="card-body text-center">
+                <div class="technology-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <h4 class="card-title">Futuro y Plan de Acción</h4>
+                <p class="card-text">Explora nuestros planes a futuro y el desarrollo continuo de Terrabot.</p>
+                <button class="btn btn-success show-section" data-section="futuro">Explorar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gantt-diagram" style="text-align: center; padding: 40px;">
+      <h2>Diagrama de Gantt - Documentación del Proyecto</h2>
+      <p>Este diagrama muestra la planificación por semanas para el desarrollo de la documentación de Terrabot.</p>
+      <img src="img/diagramma-de-ganth" alt="Diagrama de Gantt Terrabot" style="max-width: 70%; height: auto; border: 1px solid #ccc; border-radius: 700;">
+    </section>
+    
+      <!-- Sección 1: Introducción -->
+  <section id="introduccion-section" class="section-content py-5 bg-white">
+    <div class="container">
+      <div class="content-section">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="mb-0"><i class="fas fa-seedling text-success me-2"></i>Sobre Terrabot</h2>
+          <button class="btn btn-outline-secondary return-btn"><i class="fas fa-arrow-left me-2"></i>Volver al Menú</button>
+        </div>
+        <hr>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Introducción</h3>
+            <p class="lead">La agricultura moderna enfrenta retos sin precedentes que requieren soluciones innovadoras.</p>
+            <p>En un mundo afectado por el cambio climático, la escasez de recursos hídricos y la creciente demanda alimentaria, la agricultura necesita reinventarse. Terrabot surge como respuesta a estos desafíos, ofreciendo una solución automatizada para optimizar la siembra en diversos tipos de terrenos, incluso los más complejos.</p>
+            <p>Este robot autónomo está diseñado para operar en condiciones donde la maquinaria convencional no puede acceder, utilizando tecnología de punta para maximizar la eficiencia y sostenibilidad agrícola.</p>
+          </div>
+          <div class="col-md-6">
+            <img src="img/siembra.jpg" class="img-fluid rounded shadow" alt="Terrabot en acción">
+          </div>
+        </div>
+        
+        <div class="row mt-5">
+          <div class="col-12">
+            <h3>Objetivos del Proyecto</h3>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="stats-box">
+              <h5>Objetivo General</h5>
+              <p>Desarrollar un robot autónomo capaz de realizar siembra precisa en distintos tipos de terreno, incluyendo aquellos de difícil acceso, adaptándose automáticamente a las condiciones del suelo.</p>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <h5>Objetivos Específicos</h5>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-truck-monster"></i>
+                  </div>
+                  <div>
+                    <h6>Sistema de Locomoción</h6>
+                    <p>Diseñar un sistema adaptable a diferentes tipos de terreno y condiciones.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-flask"></i>
+                  </div>
+                  <div>
+                    <h6>Sensores Avanzados</h6>
+                    <p>Implementar sensores para análisis de suelo en tiempo real.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-cog"></i>
+                  </div>
+                  <div>
+                    <h6>Siembra Automatizada</h6>
+                    <p>Integrar mecanismo preciso para siembra en condiciones variables.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-satellite"></i>
+                  </div>
+                  <div>
+                    <h6>Navegación Autónoma</h6>
+                    <p>Desarrollar sistema con GPS, IA y LIDAR para movimiento autónomo.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-tablet-alt"></i>
+                  </div>
+                  <div>
+                    <h6>Interfaz Intuitiva</h6>
+                    <p>Crear una interfaz de usuario accesible para agricultores.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mt-5">
+          <div class="col-12">
+            <h3>¿Por qué es importante?</h3>
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-globe-americas text-success me-2"></i>Impacto Ambiental</h5>
+                    <p class="card-text">Terrabot optimiza el uso de recursos como agua, semillas y fertilizantes, contribuyendo a prácticas agrícolas más sostenibles y reduciendo la huella ecológica de la agricultura.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-hand-holding-usd text-success me-2"></i>Impacto Económico</h5>
+                    <p class="card-text">Al aumentar la eficiencia en la siembra y reducir el desperdicio, Terrabot disminuye los costos operativos para agricultores, especialmente en terrenos de difícil acceso.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-users text-success me-2"></i>Impacto Social</h5>
+                    <p class="card-text">Facilita la labor agrícola en regiones con escasez de mano de obra y permite cultivar en zonas antes consideradas no viables para la agricultura tradicional.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-wheat-awn text-success me-2"></i>Seguridad Alimentaria</h5>
+                    <p class="card-text">Contribuye a la producción de alimentos en condiciones adversas, fortaleciendo la seguridad alimentaria ante los desafíos del cambio climático.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sección 2: Tecnología -->
+  <section id="tecnologia-section" class="section-content py-5 bg-white">
+    <div class="container">
+      <div class="content-section">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="mb-0"><i class="fas fa-microchip text-success me-2"></i>Tecnología</h2>
+          <button class="btn btn-outline-secondary return-btn"><i class="fas fa-arrow-left me-2"></i>Volver al Menú</button>
+        </div>
+        <hr>
+        
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6">
+            <h3>Tecnologías Innovadoras</h3>
+            <p class="lead">Terrabot integra múltiples tecnologías de vanguardia para ofrecer un rendimiento excepcional en diversos entornos.</p>
+            <p>Cada componente ha sido cuidadosamente seleccionado y optimizado para trabajar en armonía, creando un sistema robusto capaz de enfrentar las condiciones más exigentes del campo.</p>
+          </div>
+          <div class="col-md-6">
+            <img src="img/tecnologias.jpg" class="img-fluid rounded shadow" alt="Tecnología de Terrabot">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12 mb-4">
+            <h3>Componentes Principales</h3>
+          </div>
+          
+          <!-- Sistema de Locomoción -->
+          <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="fas fa-truck-monster me-2"></i>Sistema de Locomoción</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <img src="img/Sis-Orugas.jpg" class="img-fluid rounded-circle mb-2" alt="Sistema de orugas">
+                    <h6>Orugas</h6>
+                  </div>
+                  <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <img src="img/Ruedas-tod-terreno.jpg" class="img-fluid rounded-circle mb-2" alt="Ruedas todoterreno">
+                    <h6>Ruedas Todoterreno</h6>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <img src="img/Patas-roboticas.png" class="img-fluid rounded-circle mb-2" alt="Patas robóticas">
+                    <h6>Patas Robóticas</h6>
+                  </div>
+                </div>
+                <p class="mt-3">Sistema híbrido que permite la adaptación automática al terreno. Las orugas proporcionan tracción en suelos difíciles, las ruedas ofrecen velocidad en terrenos planos, y las patas robóticas permiten superar obstáculos extremos.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sensores -->
+          <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="fas fa-flask me-2"></i>Sensores Avanzados</h4>
+              </div>
+              <div class="card-body">
+                <div class="row mb-3">
+                  <div class="col-6 col-md-3 text-center mb-3">
+                    <div class="p-2 rounded bg-light">
+                      <i class="fas fa-tint fa-2x text-primary mb-2"></i>
+                      <p class="mb-0">Humedad</p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3 text-center mb-3">
+                    <div class="p-2 rounded bg-light">
+                      <i class="fas fa-vial fa-2x text-danger mb-2"></i>
+                      <p class="mb-0">pH</p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3 text-center mb-3">
+                    <div class="p-2 rounded bg-light">
+                      <i class="fas fa-temperature-high fa-2x text-warning mb-2"></i>
+                      <p class="mb-0">Temperatura</p>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3 text-center mb-3">
+                    <div class="p-2 rounded bg-light">
+                      <i class="fas fa-compress-arrows-alt fa-2x text-info mb-2"></i>
+                      <p class="mb-0">Compactación</p>
+                    </div>
+                  </div>
+                </div>
+                <p>Red de sensores que analizan en tiempo real las condiciones del suelo para ajustar la profundidad y densidad de siembra, optimizando la germinación y el desarrollo de las plantas.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Navegación -->
+          <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="fas fa-satellite me-2"></i>Sistema de Navegación</h4>
+              </div>
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-md-6">
+                    <ul class="list-group">
+                      <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-satellite-dish text-success me-3 fa-lg"></i>
+                        <div>
+                          <strong>GPS RTK</strong>
+                          <p class="mb-0 small">Precisión centimétrica en posicionamiento</p>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-brain text-success me-3 fa-lg"></i>
+                        <div>
+                          <strong>Visión Artificial</strong>
+                          <p class="mb-0 small">Detección de obstáculos y análisis de cultivos</p>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-radiation-alt text-success me-3 fa-lg"></i>
+                        <div>
+                          <strong>LIDAR</strong>
+                          <p class="mb-0 small">Mapeo 3D del entorno para navegación precisa</p>
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex align-items-center">
+                        <i class="fas fa-compass text-success me-3 fa-lg"></i>
+                        <div>
+                          <strong>IMU</strong>
+                          <p class="mb-0 small">Sistema inercial para estabilidad en pendientes</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 mt-3 mt-md-0">
+                    <img src="img/gps.webp" class="img-fluid rounded" alt="Sistema de navegación">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Siembra -->
+          <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="fas fa-seedling me-2"></i>Mecanismo de Siembra</h4>
+              </div>
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <img src="img/proceso-de-siembra.jpeg" class="img-fluid rounded" alt="Mecanismo de siembra">
+                  </div>
+                  <div class="col-md-6">
+                    <h5>Características:</h5>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <i class="fas fa-ruler-vertical text-success me-2"></i> Ajuste automático de profundidad
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-tachometer-alt text-success me-2"></i> Control de velocidad de dispensado
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-arrows-alt-h text-success me-2"></i> Regulación de distancia entre semillas
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-water text-success me-2"></i> Dispensado simultáneo de agua
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-leaf text-success me-2"></i> Opciones para múltiples tipos de semillas
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Impacto y Beneficios -->
+  <section id="impacto-section" class="section-content py-5 bg-white">
+    <div class="container">
+      <div class="content-section">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="mb-0"><i class="fas fa-chart-line text-success me-2"></i>Impacto y Beneficios</h2>
+          <button class="btn btn-outline-secondary return-btn"><i class="fas fa-arrow-left me-2"></i>Volver al Menú</button>
+        </div>
+        <hr>
+        
+        <div class="row mb-5">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img src="img/impacto-ambiental.jpg" class="img-fluid rounded shadow" alt="Impacto agrícola">
+          </div>
+          <div class="col-md-6">
+            <h3>Transformando la Agricultura</h3>
+            <p class="lead">Terrabot representa un cambio de paradigma en las prácticas agrícolas tradicionales.</p>
+            <p>Al combinar robótica avanzada, inteligencia artificial y tecnología de sensores, Terrabot no solo mejora la eficiencia operativa sino que también contribuye a una agricultura más sostenible y resiliente ante el cambio climático.</p>
+            <p>Los agricultores pueden sembrar con precisión en lugares antes inaccesibles, optimizando el uso de recursos y aumentando la productividad de forma significativa.</p>
+          </div>
+        </div>
+        
+        <div class="row mb-5">
+          <div class="col-12">
+            <h3 class="text-center mb-4">Beneficios Clave</h3>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="card h-100 border-success">
+                  <div class="card-body text-center">
+                    <i class="fas fa-tractor text-success fa-3x mb-3"></i>
+                    <h4 class="card-title">Eficiencia Operativa</h4>
+                    <p class="card-text">Incremento del 40% en la velocidad de siembra comparado con métodos tradicionales, con capacidad para operar 24/7.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 border-success">
+                  <div class="card-body text-center">
+                    <i class="fas fa-water text-success fa-3x mb-3"></i>
+                    <h4 class="card-title">Ahorro de Recursos</h4>
+                    <p class="card-text">Reducción del 30% en el uso de agua y hasta un 25% menos de semillas gracias a la siembra de precisión.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 border-success">
+                  <div class="card-body text-center">
+                    <i class="fas fa-mountain text-success fa-3x mb-3"></i>
+                    <h4 class="card-title">Acceso a Terrenos Difíciles</h4>
+                    <p class="card-text">Capacidad para sembrar en pendientes de hasta 45° y terrenos irregulares donde la maquinaria convencional no puede operar.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 border-success">
+                  <div class="card-body text-center">
+                    <i class="fas fa-leaf text-success fa-3x mb-3"></i>
+                    <h4 class="card-title">Sostenibilidad</h4>
+                    <p class="card-text">Reducción de la huella de carbono en un 35% comparado con tractores tradicionales, con opción de funcionamiento con energía solar.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 border-success">
+                  <div class="card-body text-center">
+                    <i class="fas fa-chart-line text-success fa-3x mb-3"></i>
+                    <h4 class="card-title">Datos y Análisis</h4>
+                    <p class="card-text">Recopilación de datos del suelo y condiciones de siembra para optimizar futuras operaciones y mejorar el rendimiento de los cultivos.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 border-success">
+                  <div class="card-body text-center">
+                    <i class="fas fa-users text-success fa-3x mb-3"></i>
+                    <h4 class="card-title">Inclusión</h4>
+                    <p class="card-text">Facilita la agricultura para personas con movilidad reducida y comunidades con escasez de mano de obra agrícola.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <!-- Sección 4: Diseño y Características -->
+  <section id="diseno-section" class="section-content py-5 bg-white">
+    <div class="container">
+      <div class="content-section">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="mb-0"><i class="fas fa-drafting-compass text-success me-2"></i>Diseño y Características</h2>
+          <button class="btn btn-outline-secondary return-btn"><i class="fas fa-arrow-left me-2"></i>Volver al Menú</button>
+        </div>
+        <hr>
+        
+        <div class="row align-items-center mb-5">
+          <div class="col-md-6 order-md-2">
+            <h3>Diseño Innovador</h3>
+            <p class="lead">Cada aspecto de Terrabot ha sido diseñado pensando en la funcionalidad, durabilidad y adaptabilidad.</p>
+            <p>El diseño modular permite personalizar el robot según las necesidades específicas de cada agricultor y tipo de cultivo. Los materiales de alta resistencia garantizan su durabilidad en condiciones extremas, mientras que su tamaño compacto facilita el transporte y almacenamiento.</p>
+          </div>
+          <div class="col-md-6 order-md-1">
+            <img src="img/img-inovador.jpg" class="img-fluid rounded shadow" alt="Diseño de Terrabot">
+          </div>
+        </div>
+        
+        <div class="row mb-5">
+          <div class="col-12 mb-4">
+            <h3>Especificaciones Técnicas</h3>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-header bg-light">
+                <h5 class="mb-0">Dimensiones y Peso</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Longitud
+                    <span>120 cm</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Anchura
+                    <span>80 cm</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Altura
+                    <span>60 cm</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Peso
+                    <span>75 kg</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Capacidad de carga
+                    <span>30 kg</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-header bg-light">
+                <h5 class="mb-0">Rendimiento</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Velocidad máxima
+                    <span>5 km/h</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Autonomía
+                    <span>8 horas</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Pendiente máxima
+                    <span>45°</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Precisión de siembra
+                    <span>±1 cm</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Capacidad de semillas
+                    <span>10 kg</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mb-5">
+          <div class="col-12 mb-4">
+            <h3>Características Destacadas</h3>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="img/Terreno-arido.jpg.crdownload" class="card-img-top" alt="Adaptabilidad">
+              <div class="card-body">
+                <h5 class="card-title">Adaptabilidad al Terreno</h5>
+                <p class="card-text">Sistema de locomoción híbrido que permite navegar por terrenos irregulares, pendientes pronunciadas y suelos de diferentes texturas.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="img/siembra-xd.avif" class="card-img-top" alt="Precisión">
+              <div class="card-body">
+                <h5 class="card-title">Siembra de Precisión</h5>
+                <p class="card-text">Mecanismo de siembra que ajusta automáticamente la profundidad y espaciado según el tipo de semilla y condiciones del suelo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="img/futuro.avif" class="card-img-top" alt="Autonomía">
+              <div class="card-body">
+                <h5 class="card-title">Autonomía Energética</h5>
+                <p class="card-text">Baterías de alta capacidad con opción de recarga solar, permitiendo operación continua en zonas remotas sin acceso a electricidad.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12 mb-4">
+            <h3>Interfaz de Usuario</h3>
+          </div>
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img src="img/interfas.jpg" class="img-fluid rounded shadow" alt="Interfaz de usuario">
+          </div>
+          <div class="col-md-6">
+            <p class="lead">Control intuitivo diseñado para agricultores de todos los niveles tecnológicos.</p>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                  </div>
+                  <div>
+                    <h6>Aplicación Móvil</h6>
+                    <p>Control remoto desde cualquier smartphone o tablet.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                  </div>
+                  <div>
+                    <h6>Planificación de Rutas</h6>
+                    <p>Definición de patrones de siembra mediante mapas interactivos.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                  <div>
+                    <h6>Análisis de Datos</h6>
+                    <p>Visualización de datos del suelo y rendimiento en tiempo real.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-language"></i>
+                  </div>
+                  <div>
+                    <h6>Multilingüe</h6>
+                    <p>Disponible en múltiples idiomas para uso global.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 5: Desafíos y Soluciones -->
+  <section id="desafios-section" class="section-content py-5 bg-white">
+    <div class="container">
+      <div class="content-section">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="mb-0"><i class="fas fa-exclamation-triangle text-success me-2"></i>Desafíos y Soluciones</h2>
+          <button class="btn btn-outline-secondary return-btn"><i class="fas fa-arrow-left me-2"></i>Volver al Menú</button>
+        </div>
+        <hr>
+        
+        <div class="row mb-5">
+          <div class="col-md-6">
+            <h3>Superando Obstáculos</h3>
+            <p class="lead">El desarrollo de Terrabot ha enfrentado numerosos desafíos técnicos y prácticos.</p>
+            <p>Cada obstáculo ha sido una oportunidad para innovar y mejorar el diseño, resultando en soluciones creativas que han fortalecido el proyecto. Nuestra metodología de desarrollo iterativo nos ha permitido adaptar y refinar continuamente el robot.</p>
+          </div>
+          <div class="col-md-6">
+            <img src="img/obstaculo.avif" class="img-fluid rounded shadow" alt="Superando desafíos">
+          </div>
+        </div>
+        
+        <div class="row mb-5">
+          <div class="col-12">
+            <h3 class="text-center mb-4">Principales Desafíos y Soluciones</h3>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered">
+                <thead class="table-success">
+                  <tr>
+                    <th>Desafío</th>
+                    <th>Solución Implementada</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Terrenos Extremadamente Irregulares</strong>
+                      <p class="small mb-0">Dificultad para mantener estabilidad en pendientes pronunciadas y terrenos rocosos.</p>
+                    </td>
+                    <td>
+                      <p>Desarrollo de un sistema de suspensión adaptativa con giroscopios y actuadores que ajustan la posición en tiempo real.</p>
+                    </td>
+                    <td>
+                      <p>Capacidad para operar en pendientes de hasta 45° y adaptarse a cambios súbitos en la superficie del terreno.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Autonomía Energética Limitada</strong>
+                      <p class="small mb-0">Las baterías convencionales no proporcionaban suficiente duración para jornadas completas.</p>
+                    </td>
+                    <td>
+                      <p>Implementación de baterías de litio de alta densidad combinadas con paneles solares flexibles y sistema de gestión energética inteligente.</p>
+                    </td>
+                    <td>
+                      <p>Aumento de autonomía de 4 a 8 horas, con capacidad de recarga solar durante la operación en días soleados.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Precisión en Condiciones Variables</strong>
+                      <p class="small mb-0">Dificultad para mantener precisión de siembra en diferentes tipos de suelo.</p>
+                    </td>
+                    <td>
+                      <p>Desarrollo de un sistema de sensores múltiples que analizan la composición del suelo en tiempo real y ajustan los parámetros de siembra.</p>
+                    </td>
+                    <td>
+                      <p>Precisión de siembra de ±1 cm en cualquier tipo de suelo, con ajuste automático de profundidad según condiciones.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Conectividad en Zonas Remotas</strong>
+                      <p class="small mb-0">Pérdida de señal GPS y comunicación en áreas rurales aisladas.</p>
+                    </td>
+                    <td>
+                      <p>Integración de sistema de navegación inercial, almacenamiento local de mapas y capacidad de operación autónoma sin conexión constante.</p>
+                    </td>
+                    <td>
+                      <p>Operación continua incluso en zonas sin cobertura, con sincronización automática al recuperar señal.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Resistencia a Condiciones Climáticas</strong>
+                      <p class="small mb-0">Vulnerabilidad a lluvia, polvo y temperaturas extremas.</p>
+                    </td>
+                    <td>
+                      <p>Diseño hermético con clasificación IP67, materiales resistentes a UV y sistema de regulación térmica para componentes críticos.</p>
+                    </td>
+                    <td>
+                      <p>Capacidad para operar en temperaturas de -10°C a 50°C y resistencia a lluvia, polvo y barro.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12 mb-4">
+            <h3>Lecciones Aprendidas</h3>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-light">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-lightbulb text-warning me-2"></i>Innovación Iterativa</h5>
+                <p class="card-text">El desarrollo por fases con pruebas constantes en campo real ha sido fundamental para identificar problemas no anticipados en el diseño teórico.</p>
+                <p class="card-text"><small class="text-muted">Cada prototipo incorporó mejoras basadas en pruebas reales.</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-light">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-users text-primary me-2"></i>Colaboración Multidisciplinaria</h5>
+                <p class="card-text">La integración de conocimientos de ingeniería mecánica, electrónica, agronomía e informática ha sido esencial para resolver desafíos complejos.</p>
+                <p class="card-text"><small class="text-muted">El equipo diverso aportó perspectivas complementarias.</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-light">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-comments text-danger me-2"></i>Retroalimentación del Usuario</h5>
+                <p class="card-text">La participación de agricultores desde las primeras etapas de diseño ha sido crucial para desarrollar un producto realmente útil y adaptado a necesidades reales.</p>
+                <p class="card-text"><small class="text-muted">Las sugerencias de usuarios transformaron características clave.</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 6: Futuro y Plan de Acción -->
+  <section id="futuro-section" class="section-content py-5 bg-white">
+    <div class="container">
+      <div class="content-section">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="mb-0"><i class="fas fa-rocket text-success me-2"></i>Futuro y Plan de Acción</h2>
+          <button class="btn btn-outline-secondary return-btn"><i class="fas fa-arrow-left me-2"></i>Volver al Menú</button>
+        </div>
+        <hr>
+        
+        <div class="row mb-5">
+          <div class="col-md-6 order-md-2">
+            <h3>Visión de Futuro</h3>
+            <p class="lead">Terrabot es solo el comienzo de una revolución en la agricultura de precisión.</p>
+            <p>Nuestra visión es crear un ecosistema completo de robots agrícolas autónomos que trabajen en conjunto para gestionar todo el ciclo de cultivo, desde la preparación del suelo hasta la cosecha, adaptándose a cualquier entorno y condición.</p>
+            <p>Buscamos democratizar el acceso a tecnología agrícola avanzada, haciéndola accesible para agricultores de todos los tamaños y regiones.</p>
+          </div>
+          <div class="col-md-6 order-md-1">
+            <img src="img/futuro-agricola.png" class="img-fluid rounded shadow" alt="Visión de futuro">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mb-4">
+            <h3>Próximas Innovaciones</h3>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white">
+                <h4 class="mb-0">Mejoras Tecnológicas</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <i class="fas fa-microchip text-success me-2"></i> IA avanzada para toma de decisiones autónomas
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-battery-full text-success me-2"></i> Baterías de mayor capacidad y eficiencia
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-network-wired text-success me-2"></i> Comunicación entre múltiples robots
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <i class="fas fa-cloud text-success me-2"></i> Integración con plataformas de agricultura digital
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-tachometer-alt text-success me-2"></i> Mayor velocidad de operación
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-shield-alt text-success me-2"></i> Sistemas de seguridad mejorados
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white">
+                <h4 class="mb-0">Nuevas Funcionalidades</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <i class="fas fa-spray-can text-success me-2"></i> Módulo de fertilización de precisión
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-bug text-success me-2"></i> Sistema de detección y control de plagas
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-camera text-success me-2"></i> Monitoreo avanzado del desarrollo de cultivos
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <i class="fas fa-tint-slash text-success me-2"></i> Gestión de riego localizado
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-leaf text-success me-2"></i> Adaptación a cultivos especializados
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fas fa-robot text-success me-2"></i> Capacidades de cosecha selectiva
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <h3 class="mb-4">Realizado por: Miguel Angel Alvarez Cardozo</h3>
+            <p class="lead">Fue un gusto haberles presentado a terrabot</p>
+            <div class="mt-4">
+              <a href="#" class="btn btn-success btn-lg me-3 mb-3">Contactar al Equipo</a>
+              <a href="#" class="btn btn-outline-success btn-lg mb-3">Demostración a largo plazo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botón flotante para volver arriba -->
+  <a href="#" class="btn btn-success btn-lg btn-floating rounded-circle">
+    <i class="fas fa-arrow-up"></i> 
+  </a>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+  <!-- JavaScript personalizado -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mostrar/ocultar secciones
+      const showSectionButtons = document.querySelectorAll('.show-section');
+      const returnButtons = document.querySelectorAll('.return-btn');
+      const menuSection = document.getElementById('menu');
+      const sectionContents = document.querySelectorAll('.section-content');
+      
+      // Función para mostrar una sección específica
+      function showSection(sectionId) {
+        // Ocultar el menú
+        menuSection.style.display = 'none';
+        
+        // Ocultar todas las secciones
+        sectionContents.forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Mostrar la sección seleccionada
+        const targetSection = document.getElementById(sectionId + '-section');
+        if (targetSection) {
+          targetSection.classList.add('active');
+          // Desplazarse al inicio de la sección
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
+      }
+      
+      // Función para volver al menú
+      function returnToMenu() {
+        // Ocultar todas las secciones
+        sectionContents.forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Mostrar el menú
+        menuSection.style.display = 'block';
+        
+        // Desplazarse al menú
+        document.getElementById('menu').scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+      
+      // Asignar eventos a los botones de mostrar sección
+      showSectionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const sectionId = this.getAttribute('data-section');
+          showSection(sectionId);
+        });
+      });
+      
+      // Asignar eventos a los botones de volver
+      returnButtons.forEach(button => {
+        button.addEventListener('click', returnToMenu);
+      });
+      
+      // Botón flotante para volver arriba
+      const btnFloating = document.querySelector('.btn-floating');
+      btnFloating.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Mostrar/ocultar botón flotante según el scroll
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          btnFloating.style.display = 'block';
+        } else {
+          btnFloating.style.display = 'none';
+        }
+      });
+      
+      // Inicialmente ocultar el botón flotante
+      btnFloating.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
